@@ -4,15 +4,15 @@
 // the terms stated in the MIT License, provided that the above copyright notice appear in all copies and that
 // both that copyright notice and this permission notice appear in supporting documentation.
 
-#ifndef BOOST_SIGDIG_LOOKUP_HPP
-#define BOOST_SIGDIG_LOOKUP_HPP
+#ifndef SIGDIG_LOOKUP_HPP
+#define SIGDIG_LOOKUP_HPP
 
 #pragma once
 
-namespace sigdig {
+namespace sigdig
+{
 
-// This is meant to be an internal header file.
-// It is not meant to be included by source files outside of Boost.SigDig.
+// This is meant to be an internal header file. It is not meant to be included by source files outside of SigDig.
 
 // ----------------------------------------------------------------------------
 
@@ -30,6 +30,6 @@ public:
 
 // ----------------------------------------------------------------------------
 
-} // end namespace
+}
 
 #endif

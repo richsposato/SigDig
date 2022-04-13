@@ -34,33 +34,33 @@ g++ -Weffc++ -Wall -std=c++17 -I include -I src -I .. -I ../CppUnitTest/include 
 g++ -Weffc++ -Wall -std=c++17 -I include -I src -I .. -I ../CppUnitTest/include -c test/test_defined_value.cpp -o bin/test_defined_value.o
 
 rm ./bin/main.exe
-g++ -Weffc++ -Wall -std=c++17 \
-	bin/main.o \
-	bin/test_helper.o \
-	bin/test_defined_value.o \
-	obj/defined_value.o \
-	obj/measured_value.o \
-	obj/calculated_value.o \
-	obj/significant_value.o \
-	obj/utility.o \
-	obj/helper.o \
-	obj/lookup.o \
-	../boost_1_74_0/stage/lib/libboost_unit_test_framework-vc142-mt-x64-1_74.lib \
-	-o bin/main.exe
+#g++ -Weffc++ -Wall -std=c++17 \
+#	bin/main.o \
+#	bin/test_helper.o \
+#	bin/test_defined_value.o \
+#	obj/defined_value.o \
+#	obj/measured_value.o \
+#	obj/calculated_value.o \
+#	obj/significant_value.o \
+#	obj/utility.o \
+#	obj/helper.o \
+#	obj/lookup.o \
+#	../boost_1_74_0/stage/lib/libboost_unit_test_framework-vc142-mt-x64-1_74.lib \
+#	-o bin/main.exe
 
 
-g++ -Weffc++ -Wall -std=c++17 \
-	bin/main.o \
-	bin/test_helper.o \
-	bin/test_defined_value.o \
-	obj/defined_value.o \
-	obj/measured_value.o \
-	obj/calculated_value.o \
-	obj/significant_value.o \
-	obj/utility.o \
-	obj/helper.o \
-	obj/lookup.o \
-	-o bin/main.exe
+#g++ -Weffc++ -Wall -std=c++17 \
+#	bin/main.o \
+#	bin/test_helper.o \
+#	bin/test_defined_value.o \
+#	obj/defined_value.o \
+#	obj/measured_value.o \
+#	obj/calculated_value.o \
+#	obj/significant_value.o \
+#	obj/utility.o \
+#	obj/helper.o \
+#	obj/lookup.o \
+#	-o bin/main.exe
 
 g++ -Weffc++ -Wall -std=c++17 \
 	bin/main.o \
