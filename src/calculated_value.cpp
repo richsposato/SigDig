@@ -13,6 +13,7 @@
 
 #include "measured_value.hpp"
 #include "defined_value.hpp"
+#include "helper.hpp"
 
 namespace sigdig {
 
@@ -581,6 +582,10 @@ calculated_value calculated_value::tangent() const
 calculated_value calculated_value::arc_sine() const
 {
     assert( is_sane() );
+    if ( ( value_ < -1.0 ) || ( value_ > 1.0 ) )
+    {
+        throw std::domain_error( "Error! Value for arc_sine must be from -1.0 to 1.0." );
+    }
     const long double v = std::asin( value_ );
     calculated_value result( v, digits_ );
     return result;
@@ -591,6 +596,10 @@ calculated_value calculated_value::arc_sine() const
 calculated_value calculated_value::arc_cosine() const
 {
     assert( is_sane() );
+    if ( ( value_ < -1.0 ) || ( value_ > 1.0 ) )
+    {
+        throw std::domain_error( "Error! Value for arc_cosine must be from -1.0 to 1.0." );
+    }
     const long double v = std::acos( value_ );
     calculated_value result( v, digits_ );
     return result;
@@ -611,6 +620,10 @@ calculated_value calculated_value::arc_tangent() const
 calculated_value calculated_value::hyper_sine() const
 {
     assert( is_sane() );
+    if ( ( value_ > helper::max_sinh_value ) || ( value_ < -helper::max_sinh_value ) )
+    {
+        throw std::domain_error( "Error! Absolute value for hyper_sine may not be greater than 11357.0F." );
+    }
     const long double v = std::sinh( value_ );
     calculated_value result( v, digits_ );
     return result;
@@ -621,6 +634,10 @@ calculated_value calculated_value::hyper_sine() const
 calculated_value calculated_value::hyper_cosine() const
 {
     assert( is_sane() );
+    if ( ( value_ > helper::max_sinh_value ) || ( value_ < -helper::max_sinh_value ) )
+    {
+        throw std::domain_error( "Error! Absolute value for hyper_cosine may not be greater than 11357.0F." );
+    }
     const long double v = std::cosh( value_ );
     calculated_value result( v, digits_ );
     return result;
@@ -651,6 +668,10 @@ calculated_value calculated_value::hyper_arc_sine() const
 calculated_value calculated_value::hyper_arc_cosine() const
 {
     assert( is_sane() );
+    if ( value_ < 1.0F )
+    {
+        throw std::domain_error( "Error! Value for hyper_arc_cosine may not be less than 1.0." );
+    }
     const long double v = std::acosh( value_ );
     calculated_value result( v, digits_ );
     return result;
@@ -661,6 +682,10 @@ calculated_value calculated_value::hyper_arc_cosine() const
 calculated_value calculated_value::hyper_arc_tangent() const
 {
     assert( is_sane() );
+    if ( ( value_ <= 1.0F ) || ( value_ >= 1.0F ) )
+    {
+        throw std::domain_error( "Error! Absolute value for hyper_arc_tangent must be less than 1.0." );
+    }
     const long double v = std::atanh( value_ );
     calculated_value result( v, digits_ );
     return result;

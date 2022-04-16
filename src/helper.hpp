@@ -29,6 +29,8 @@ public:
     static const int lowest_exponent  = LDBL_MIN_10_EXP; // This is -4931.
     static const int highest_exponent = LDBL_MAX_10_EXP; // This is 4932.
 
+    static constexpr long double max_sinh_value = 11357.0F;
+
     static constexpr double epsilon = 10.0L * LDBL_EPSILON;
 
     // A long double can store at most 34 base-10 digits because 113 bits are

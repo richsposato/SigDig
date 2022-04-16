@@ -677,6 +677,10 @@ defined_value defined_value::tangent() const
 defined_value defined_value::arc_sine() const
 {
     assert( is_sane() );
+    if ( ( value_ < -1.0 ) || ( value_ > 1.0 ) )
+    {
+        throw std::domain_error( "Error! Value for arc_sine must be from -1.0 to 1.0." );
+    }
     const long double v = std::asin( value_ );
     defined_value result( v );
     return result;
@@ -687,6 +691,10 @@ defined_value defined_value::arc_sine() const
 defined_value defined_value::arc_cosine() const
 {
     assert( is_sane() );
+    if ( ( value_ < -1.0 ) || ( value_ > 1.0 ) )
+    {
+        throw std::domain_error( "Error! Value for arc_cosine must be from -1.0 to 1.0." );
+    }
     const long double v = std::acos( value_ );
     defined_value result( v );
     return result;
@@ -707,6 +715,10 @@ defined_value defined_value::arc_tangent() const
 defined_value defined_value::hyper_sine() const
 {
     assert( is_sane() );
+    if ( ( value_ > helper::max_sinh_value ) || ( value_ < -helper::max_sinh_value ) )
+    {
+        throw std::domain_error( "Error! Absolute value for hyper_sine may not be greater than 11357.0F." );
+    }
     const long double v = std::sinh( value_ );
     defined_value result( v );
     return result;
@@ -717,6 +729,10 @@ defined_value defined_value::hyper_sine() const
 defined_value defined_value::hyper_cosine() const
 {
     assert( is_sane() );
+    if ( ( value_ > helper::max_sinh_value ) || ( value_ < -helper::max_sinh_value ) )
+    {
+        throw std::domain_error( "Error! Absolute value for hyper_cosine may not be greater than 11357.0F." );
+    }
     const long double v = std::cosh( value_ );
     defined_value result( v );
     return result;
@@ -747,6 +763,10 @@ defined_value defined_value::hyper_arc_sine() const
 defined_value defined_value::hyper_arc_cosine() const
 {
     assert( is_sane() );
+    if ( value_ < 1.0F )
+    {
+        throw std::domain_error( "Error! Value for hyper_arc_cosine may not be less than 1.0." );
+    }
     const long double v = std::acosh( value_ );
     defined_value result( v );
     return result;
@@ -757,6 +777,10 @@ defined_value defined_value::hyper_arc_cosine() const
 defined_value defined_value::hyper_arc_tangent() const
 {
     assert( is_sane() );
+    if ( ( value_ <= 1.0F ) || ( value_ >= 1.0F ) )
+    {
+        throw std::domain_error( "Error! Absolute value for hyper_arc_tangent must be less than 1.0." );
+    }
     const long double v = std::atanh( value_ );
     defined_value result( v );
     return result;
